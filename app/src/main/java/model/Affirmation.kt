@@ -1,4 +1,5 @@
 package model
 
-class Affirmation {
+data class Affirmation(val stringResourceId: Int) {
+
 }
