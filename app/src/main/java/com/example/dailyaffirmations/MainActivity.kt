@@ -2,6 +2,7 @@ package com.example.dailyaffirmations
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.dailyaffirmations.adapter.ItemAdapter
 import com.example.dailyaffirmations.databinding.ActivityMainBinding
 import model.dataSource.DataSource
 
@@ -55,6 +56,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.textView1.text = DataSource().loadAffirmations().size.toString()
+        val myDataSource = DataSource().loadAffirmations()
+        binding.recycleView.adapter  = ItemAdapter(this, myDataSource)
+        binding.recycleView.setHasFixedSize(true)
+
     }
 }
