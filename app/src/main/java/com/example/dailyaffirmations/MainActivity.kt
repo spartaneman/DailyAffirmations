@@ -2,6 +2,8 @@ package com.example.dailyaffirmations
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.dailyaffirmations.databinding.ActivityMainBinding
+import model.dataSource.DataSource
 
 /*
 *                       Kotlin Lists
@@ -46,8 +48,13 @@ import android.os.Bundle
 * toppings.joinToString(Pass in separator like ",")
 * */
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.textView1.text = DataSource().loadAffirmations().size.toString()
     }
 }

@@ -4,7 +4,7 @@ import model.Affirmation
 
 class DataSource {
 
-    private fun loadAffirmations(): List<Affirmation>
+    fun loadAffirmations(): List<Affirmation>
     {
         return listOf<Affirmation>(
             Affirmation(R.string.affirmation1),
